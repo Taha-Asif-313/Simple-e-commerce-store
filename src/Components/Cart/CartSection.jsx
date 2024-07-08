@@ -19,18 +19,24 @@ const CartSection = ({ Show }) => {
           </p>
         </div>
         <div className="cart-products flex flex-wrap flex-col justify-center lg:flex-row w-full px-5 py-5">
-          {CartProducts.map((product) => {
-            return (
-              <CartProductCard
-                Id={product.Id}
-                Title={product.Title}
-                Desc={product.Desc}
-                Url={product.Url}
-                Label={product.Label}
-                Price={product.Price}
-              />
-            );
-          })}
+          {CartProducts.length === 0 ? (
+            <div className="h-full w-full flex justify-center items-center">
+              No cart product found
+            </div>
+          ) : (
+            CartProducts.map((product) => {
+              return (
+                <CartProductCard
+                  Id={product.Id}
+                  Title={product.Title}
+                  Desc={product.Desc}
+                  Url={product.Url}
+                  Label={product.Label}
+                  Price={product.Price}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </>

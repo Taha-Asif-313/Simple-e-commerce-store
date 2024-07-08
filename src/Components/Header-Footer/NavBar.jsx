@@ -12,10 +12,10 @@ const NavBar = () => {
   const { ShowCart, setShowCart } = useContext(CartContext);
   return (
     <nav className="navbar z-50 animate-wipeDown fixed mb-10 w-full flex justify-between items-center bg-green-50 shadow-[0_2px_4px_rgba(0,0,0,0.1)] px-5 lg:px-20 py-2">
-      <div className="navbar-section w-[50%] lg:w-[30%] flex items-center  gap-2 text-[18px] font-semibold">
-        <FaCartShopping className="text-4xl text-primary" />{" "}
+      <Link to={'/'} className="w-[50%] lg:w-[30%] flex items-center  gap-2 text-[18px] font-semibold ">
+ <FaCartShopping className="text-4xl text-primary" />
         <span className="font-bold">Shopi</span>
-      </div>
+        </Link>
       <div className="navbar-section hidden lg:flex justify-center items-center gap-4 lg:w-[40%]">
         <Link
           className="no-underline font-medium hover:text-primary transition-all text-black duration-[0,5s,text-decoration] "
@@ -25,21 +25,15 @@ const NavBar = () => {
         </Link>
         <Link
           className="no-underline font-medium hover:text-primary transition-all text-black duration-[0,5s,text-decoration] "
-          to="/men"
+          to="/products"
         >
-          Mens
+          Products
         </Link>
         <Link
           className="no-underline font-medium hover:text-primary transition-all text-black duration-[0,5s,text-decoration] "
-          to="/women"
+          to="/about"
         >
-          Womens
-        </Link>
-        <Link
-          className="no-underline font-medium hover:text-primary transition-all text-black duration-[0,5s,text-decoration] "
-          to="/kids"
-        >
-          Kids
+          About
         </Link>
       </div>
       <div className="navbar-section w-[50%] lg:w-[30%] relative flex gap-3 justify-end items-center actions">

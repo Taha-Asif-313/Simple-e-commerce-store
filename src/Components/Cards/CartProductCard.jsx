@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../Context/CartContext";
+import { useDispatch } from "react-redux";
+import { decrement } from "../../Redux/store";
 
 const CartProductCard = ({ Id, Title, Desc, Url, Label, Price }) => {
+
+  // Use Dispatch
+  const dispatch = useDispatch();
+
+  // Usecontext
+  const { removeFromCart } = useContext(CartContext);
+
+  const removeItem = () => {
+    removeFromCart(Id);
+    dispatch(decrement());
+  };
   return (
     <div
       key={Id}
@@ -36,9 +50,7 @@ const CartProductCard = ({ Id, Title, Desc, Url, Label, Price }) => {
             Price: $<span className="text-sm animate-pop">{Price}</span>
           </p>
           <button
-            onClick={() => {
-              dispatch(increment());
-            }}
+            onClick={removeItem}
             className="py-[4px] px-3 text-[10px] lg:font-bold text-white rounded-full animate-pop bg-primary"
           >
             Remove from cart

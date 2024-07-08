@@ -8,7 +8,7 @@ export const CartContextProvider = ({ children }) => {
   const [CartProducts, setCartProducts] = useState([]);
   const [Product, setproduct] = useState([
     {
-      Id: 1,
+      Id: 0,
       Title: "T-Shirt",
       Desc: "fanbtastic shirt",
       Url: "/t-shirt.png",
@@ -16,7 +16,7 @@ export const CartContextProvider = ({ children }) => {
       Price: 34,
     },
     {
-      Id: 2,
+      Id: 1,
       Title: "Shoes",
       Desc: "fanbtastic shoes",
       Url: "/shoes.png",
@@ -24,7 +24,7 @@ export const CartContextProvider = ({ children }) => {
       Price: 23,
     },
     {
-      Id: 3,
+      Id: 2,
       Title: "T-Shirt",
       Desc: "unique shirt",
       Url: "/kids-shirt.png",
@@ -32,7 +32,7 @@ export const CartContextProvider = ({ children }) => {
       Price: 44,
     },
     {
-      Id: 4,
+      Id: 3,
       Title: "Dress Shirt",
       Desc: "fanbtastic shirt",
       Url: "/dress shirt.png",
@@ -40,27 +40,28 @@ export const CartContextProvider = ({ children }) => {
       Price: 50,
     },
     {
-      Id: 5,
-      Title: "Dress Paint",
+      Id: 4,
+      Title: "Dress Suit",
       Desc: "fanbtastic design",
-      Url: "/product.png",
+      Url: "/Dress-suit.png",
       Label: "men",
       Price: 70,
     },
     {
-      Id: 6,
+      Id: 5,
       Title: "Cap",
       Desc: "fanbtastic cap",
-      Url: "/product.png",
+      Url: "/Cap.png",
       Label: "men",
       Price: 18,
     },
   ]);
 
   // Functions
+  // Function to add product in cart
   const addToCart = (Id, Title, Desc, Url, Label, Price) => {
-    setCartProducts((prevCart) => [
-      ...prevCart,
+    setCartProducts([
+      ...CartProducts,
       {
         Id: Id,
         Title: Title,
@@ -70,11 +71,23 @@ export const CartContextProvider = ({ children }) => {
         Price: Price,
       },
     ]);
-    console.log(CartProducts);
   };
+
+  // Function to remove irem from cart
+  const removeFromCart = (Id) => {
+    setCartProducts(CartProducts.slice(1, Id));
+  };
+  
   return (
     <CartContext.Provider
-      value={{ ShowCart, setShowCart, CartProducts, Product, addToCart }}
+      value={{
+        ShowCart,
+        setShowCart,
+        CartProducts,
+        Product,
+        addToCart,
+        removeFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>

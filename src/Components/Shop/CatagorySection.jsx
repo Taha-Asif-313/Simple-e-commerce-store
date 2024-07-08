@@ -11,7 +11,7 @@ const CatagorySection = () => {
             Discover the catagories!
           </p>
         </div>
-        <div className="catagories w-full flex flex-wrap justify-center items-center gap-10">
+        <div className="catagories w-full flex flex-wrap justify-center items-center my-4 gap-10">
           <CatagoryCard
             BgColor={"bg-green-700"}
             Title={"Men"}
@@ -27,12 +27,6 @@ const CatagorySection = () => {
           <CatagoryCard
             BgColor={"bg-yellow-700"}
             Title={"Kids"}
-            Desc={"Lets exlore men stock"}
-            Url={"/catagory-1.png"}
-          />
-          <CatagoryCard
-            BgColor={"bg-blue-700"}
-            Title={"Men"}
             Desc={"Lets exlore men stock"}
             Url={"/catagory-1.png"}
           />
